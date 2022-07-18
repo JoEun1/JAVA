@@ -14,13 +14,13 @@ public class ConnectDB {
 		
 		Connection con = null;
 		
-		String url = "jdbc:mariadb://127.0.0.1:3306/chat";
-		String user = "tomato";
-		String pwd = "0987";
+		String url = "jdbc:mariadb://localhost:3306/chat";
+		String user = "root";
+		String pwd = "1234";
 		
 		try {
 			con = DriverManager.getConnection(url, user, pwd);
-			System.out.println("µ¥ÀÌÅÍº£ÀÌ½º ¿¬°á ¼º°ø");
+			System.out.println("ë°ì´í„°ë² ì´ìŠ¤ ì—°ê²° ì„±ê³µ");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}	
@@ -38,7 +38,7 @@ public class ConnectDB {
 			System.out.println("Add to Record Fail");
 	}
 	
-	public void join (String id, String pw) { //È¸¿ø°¡ÀÔ Äõ¸®¹® ½ÇÇà ¸Ş¼Òµå
+	public void join (String id, String pw) { //íšŒì›ê°€ì… ì¿¼ë¦¬ë¬¸ ì‹¤í–‰ ë©”ì†Œë“œ
 		
 		Connection con = makeConnection();
 		
@@ -46,7 +46,7 @@ public class ConnectDB {
 			/*pstmt = con.prepareStatement("SELECT id FROM account_tbl WHERE id="+id);
 			rs = pstmt.executeQuery();
 			if(rs != null) {
-			}//¾ÆÀÌµğ Áßº¹°Ë»ç*/
+			}//ì•„ì´ë”” ì¤‘ë³µê²€ì‚¬*/
 			
 			pstmt = con.prepareStatement("insert into account_tbl(ID,PW) values (?,?)");
 			pstmt.setString(1, id);
